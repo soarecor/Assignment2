@@ -14,15 +14,13 @@
   zog("____INTERACTIVE POWER GRID____");
   // var stage = new createjs.Stage("myCanvas"); //new createjs stage object
 
-  stage.enableMouseOver(10); //10 times per second
+  stage.enableMouseOver(2); //10 times per second
   var cont = new createjs.Container(); //container for lego and cabinet
   stage.addChild(cont);
   // var w = cont.width;
   // var h = cont.height;
   // stage.canvas.width = w;
   // stage.canvas.height = h;
-
-
 
   var imagePath = "_images/";
   var manifest = [{
@@ -171,6 +169,7 @@
     var x=0;
     var y=0;
           button.on("click",function(){
+            zog("dan");
             button.alpha=0;
             switch (x)
                 {
@@ -226,10 +225,12 @@
 
         button.on("mouseout",function(){
           button.alpha=1;
+          stage.update();
         });
 
         button2.on("mouseout",function(){
           button2.alpha=1;
+          stage.update();
         });
 
         var wire = new createjs.Bitmap(preload.getResult("wire"));
