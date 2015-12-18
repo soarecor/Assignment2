@@ -16,7 +16,7 @@ stage.addChild(cont);
 var imagePath = "_images/";
 var manifest = [{
   id: "back", //adding p to the manifest
-  src: "black.png"
+  src: "back.png"
 },{
   id: "windtop", //adding p to the manifest
   src: "windtop.png"
@@ -24,8 +24,8 @@ var manifest = [{
   id: "windbot", //adding p to the manifest
   src: "windbot.png"
 },{
-  id: "clouds", //adding cabinet to the manifest
-  src: "clouds.png"
+  id: "dist", //adding cabinet to the manifest
+  src: "dist2.png"
 }
 ];
 
@@ -34,12 +34,20 @@ preload.installPlugin(createjs.Sound);
 preload.loadManifest(manifest);
 preload.on("complete", startApp);
 
+
+
 function startApp(e) {
   createjs.Ticker.on("tick",stage);
 
   var back = new createjs.Bitmap(preload.getResult("back"));
   cont.addChild(back);
   // zim.scale(back, .25);
+
+  var clouds = new createjs.Bitmap(preload.getResult("dist"));
+  cont.addChild(clouds);
+  clouds.y=350;
+  clouds.x=100;
+  zim.scale(clouds, 2);
 
    function  makeWindmill(){
      var wbot = new createjs.Bitmap(preload.getResult("windbot"));
@@ -70,11 +78,7 @@ function startApp(e) {
 
 
 
-  // var clouds = new createjs.Bitmap(preload.getResult("clouds"));
-  // cont.addChild(clouds);
-  // clouds.y=350;
-  // clouds.x=100;
-  // zim.scale(clouds, .25);
+
 
   stage.on("click",function(){
   stage.mouseX;
