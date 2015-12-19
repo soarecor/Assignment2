@@ -1,0 +1,14 @@
+/*#myCanvas{
+  width:40px;
+  align-items: center;
+  text-align: center;
+    background:green;
+}
+
+body{
+  background:black;
+  margin: 0 auto;
+  width:100%;
+}*/
+body {margin:0px; padding:0px; background-color:#000;}
+	#myCanvas {position:absolute; background-color:black;}

@@ -29,7 +29,7 @@
    src: "line1.png"
  },{
    id: "wire1", //adding cabinet to the manifest
-   src: "line2.png"
+   src: "line21.png"
  },{
    id: "button", //adding cabinet to the manifest
    src: "bttn.png"
@@ -41,19 +41,19 @@
    src: "bttn2.png"
  },{
    id: "o", //adding cabinet to the manifest
-   src: "O.png"
+   src: "O1.png"
  },{
    id: "w", //adding cabinet to the manifest
-   src: "W.png"
+   src: "W1.png"
  },{
    id: "e", //adding cabinet to the manifest
-   src: "E.png"
+   src: "E1.png"
  },{
    id: "towers", //adding cabinet to the manifest
-   src: "towers.png"
+   src: "towers1.png"
  },{
    id: "R", //adding cabinet to the manifest
-   src: "R.png"
+   src: "R1.png"
  },{
    id: "ion", //adding cabinet to the manifest
    src: "ion.png"
@@ -66,9 +66,6 @@
  },{
    id: "wire4", //adding cabinet to the manifest
    src: "line4.png"
- },{
-   id: "clouds", //adding cabinet to the manifest
-   src: "clouds.png"
  },{
    id: "windtop", //adding p to the manifest
    src: "windtop.png"
@@ -84,6 +81,15 @@
  },{
    id: "dist", //adding cabinet to the manifest
    src: "dist2.png"
+ },{
+   id: "clouds1", //adding cabinet to the manifest
+   src: "clouds1.png"
+ },{
+   id: "clouds2", //adding cabinet to the manifest
+   src: "clouds2.png"
+ },{
+   id: "clouds3", //adding cabinet to the manifest
+   src: "clouds3.png"
  }
 ];
 
@@ -108,25 +114,71 @@
     dist.regX = 10;
     dist.regY = 100;
 
-    var wbot = new createjs.Bitmap(preload.getResult("windbot"));
-    cont.addChild(wbot);
-    zim.scale(wbot, .25);
-    wbot.x=100;
-    wbot.y=207;
+       function  makeWindmill(){
+         var cont1 = new createjs.Container(); //container for lego and cabinet
+         stage.addChild(cont1);
 
-    var wtop = new createjs.Bitmap(preload.getResult("windtop"));
-    cont.addChild(wtop);
-    // stage.addChild(new zim.Grid());
-    // zim.outline(wtop);
-    zim.scale(wtop, .25);
-    wtop.x=170;
-    wtop.y=207;
-    wtop.regX= 336;
-    wtop.regY= 260;
+         var wbot = new createjs.Bitmap(preload.getResult("windbot"));
+         cont1.addChild(wbot);
+         wbot.x=160;
+         wbot.y=207;
 
-    var tween = createjs.Tween.get(wtop, {loop: true})
-     .to({rotation: 0}, 0)
-     .to({rotation: 360}, 2000);
+         var wtop = new createjs.Bitmap(preload.getResult("windtop"));
+         cont1.addChild(wtop);
+           wtop.x=460;
+         wtop.y=207;
+         wtop.regX= 336;
+         wtop.regY= 260;
+
+         var tween = createjs.Tween.get(wtop, {loop: true})
+          .to({rotation: 0}, 0)
+          .to({rotation: 360}, Math.random()*4000+2000);
+          return(cont1);
+       }
+
+
+
+       var windmill = new makeWindmill();
+       zim.scale(windmill,.5);
+
+       var windmill9 = new makeWindmill();
+       zim.scale(windmill9,.3);
+        windmill9.x=300;
+
+        var windmill3=new makeWindmill();
+         windmill3.x=700;
+         zim.scale(windmill3,.1);
+
+         var windmill1=new makeWindmill();
+          windmill1.x=800;
+          zim.scale(windmill1,.3);
+
+          var windmill5=new makeWindmill();
+           windmill5.x=900;
+           zim.scale(windmill5,.4);
+
+
+           var windmill6=new makeWindmill();
+            windmill6.x=1200;
+            zim.scale(windmill6,.25);
+
+
+         var windmill7=new makeWindmill();
+          windmill7.x=1600;
+          zim.scale(windmill7,.55);
+
+          var windmill8=new makeWindmill();
+           windmill8.x=1450;
+           zim.scale(windmill8,.35);
+
+           var windmill2=new makeWindmill();
+            windmill2.x=500;
+            zim.scale(windmill2,.4);
+
+    //
+    // var tween = createjs.Tween.get(wtop, {loop: true})
+    //  .to({rotation: 0}, 0)
+    //  .to({rotation: 360}, 2000);
 
     var i = new createjs.Bitmap(preload.getResult("ion"));
     cont.addChild(i);
@@ -134,6 +186,12 @@
     i.y = 1300; //property
     i.regX = 10;
     i.regY = 100;
+
+    var bioff = new createjs.Bitmap(preload.getResult("bioff"));
+    cont.addChild(bioff);
+    zim.scale(bioff,.25);
+    bioff.x = 1580; //property
+    bioff.y = 1520;
 
     var bion = new createjs.Bitmap(preload.getResult("bion"));
     cont.addChild(bion);
@@ -143,49 +201,45 @@
     bion.regX = 10;
     bion.regY = 100;
 
-    var bioff = new createjs.Bitmap(preload.getResult("bioff"));
-    cont.addChildAt(bioff,9);
-    zim.scale(bioff,.25);
-    bioff.x = 1590; //property
-    bioff.y = 1520; //property
+  //property
 
     var r = new createjs.Bitmap(preload.getResult("R"));
     cont.addChild(r);
-    zim.scale(r, .25);
-    r.x = 850; //property
-    r.y = 1150; //property
+    // zim.scale(r, .25);
+    r.x = 900; //property
+    r.y = 1250; //property
     r.regX = 10;
     r.regY = 100;
 
     var towers = new createjs.Bitmap(preload.getResult("towers"));
     cont.addChild(towers);
-    zim.scale(towers, .28);
-    towers.x = 230; //property
-    towers.y = 680; //property
+    zim.scale(towers, 1.1);
+    towers.x = 310; //property
+    towers.y = 810; //property
     towers.regX = 10;
     towers.regY = 100;
 
     var e = new createjs.Bitmap(preload.getResult("e"));
     cont.addChild(e);
-    zim.scale(e, .25);
-    e.x = 200; //property
-    e.y = 1180; //property
+    // zim.scale(e, .25);
+    e.x = 260; //property
+    e.y = 1280; //property
     e.regX = 10;
     e.regY = 100;
 
     var w = new createjs.Bitmap(preload.getResult("w"));
     cont.addChild(w);
-    zim.scale(w, .25);
-    w.x = 1350; //property
-    w.y = 370; //property
+    // zim.scale(w, .25);
+    w.x = 1300; //property
+    w.y = 510; //property
     w.regX = 10;
     w.regY = 100;
 
     var o = new createjs.Bitmap(preload.getResult("o"));
     cont.addChild(o);
-    zim.scale(o, .25);
-    o.x = 750; //property
-    o.y = 370; //property
+    // zim.scale(o, .25);
+    o.x = 770; //property
+    o.y = 530; //property
     o.regX = 10;
     o.regY = 100;
 
@@ -193,7 +247,7 @@
     cont.addChild(p);
     // zim.scale(p, .25);
     p.x = 100; //property
-    p.y = 400; //property
+    p.y = 480; //property
     p.regX = 10;
     p.regY = 100;
 
@@ -212,13 +266,13 @@
     var wire = new createjs.Bitmap(preload.getResult("wire"));
     cont.addChildAt(wire,1);
     zim.scale(wire, .35);
-    wire.y=450;
-    wire.x=420;
+    wire.y=520;
+    wire.x=440;
 
     var wire1 = new createjs.Bitmap(preload.getResult("wire1"));
     cont.addChildAt(wire1,2);
-    zim.scale(wire1, .28);
-    wire1.y=400;
+    zim.scale(wire1, 1.11);
+    wire1.y=460;
     wire1.x=360;
 
     var wire3 = new createjs.Bitmap(preload.getResult("wire3"));
@@ -245,11 +299,23 @@
     dbutton2.y=640;
     dbutton2.x=1215;
 
-    var clouds = new createjs.Bitmap(preload.getResult("clouds"));
-    cont.addChild(clouds);
-    clouds.y=350;
-    clouds.x=100;
-    zim.scale(clouds, .25);
+    var clouds1 = new createjs.Bitmap(preload.getResult("clouds1"));
+    cont.addChild(clouds1);
+    clouds1.y=350;
+    clouds1.x=100;
+    // zim.scale(clouds, .25);
+
+    var clouds2 = new createjs.Bitmap(preload.getResult("clouds2"));
+    cont.addChild(clouds2);
+    clouds2.y=750;
+    clouds2.x=100;
+    // zim.scale(clouds, .25);
+
+    var clouds3 = new createjs.Bitmap(preload.getResult("clouds3"));
+    cont.addChild(clouds3);
+    clouds3.y=1050;
+    clouds3.x=100;
+    // zim.scale(clouds, .25);
 
     bion.on("mouseout",function(){
       bion.alpha=1;
@@ -267,8 +333,17 @@
     });
 
     var layers =[];
-    layers.push([clouds,150,50]);
-    var parallax= new zim.Parallax(stage, 0.1, layers);
+    layers.push([clouds1,25,50]);
+    var parallax= new zim.Parallax(stage, 0.2, layers);
+
+    var layers1 =[];
+    layers1.push([clouds2,75,90]);
+    var parallax= new zim.Parallax(stage, 0.2, layers1);
+
+    var layers2 =[];
+    layers2.push([clouds3,150,130]);
+    var parallax= new zim.Parallax(stage, 0.2, layers2);
+
 
     var x=0;
     var y=1;
